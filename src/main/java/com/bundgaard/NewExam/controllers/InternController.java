@@ -6,9 +6,7 @@ import com.bundgaard.NewExam.service.CompanyService;
 import com.bundgaard.NewExam.service.InternService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +23,11 @@ public class InternController {
         System.out.println(internService.findAll());
         return internService.findAll();
     }
+
+    // Create new Intern
+    @PostMapping("/students")
+    public Intern addNewIntern(@RequestBody Intern intern){
+        return internService.save(intern);
+    }
+
 }
