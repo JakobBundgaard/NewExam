@@ -1,5 +1,6 @@
 // Update Student
 function updateStudent(id) {
+
     $.ajax({
         url: 'http://localhost:8080/api/students/' + id,
         method: 'GET',
@@ -25,7 +26,6 @@ function deleteStudent(id) {
         url: 'http://localhost:8080/api/students/' + id,
         method: 'DELETE',
         success: function() {
-
             getAllStudents();
         },
         error: function(error) {
@@ -36,7 +36,7 @@ function deleteStudent(id) {
 
 // Get all Students
 function getAllInterns() {
-
+    alert("1")
     $.ajax({
         method: "GET",
         url: 'http://localhost:8080/api/interns'
@@ -62,6 +62,7 @@ function getAllInterns() {
                 .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.isInternshipDone))
                 .append($("</td>"))
+                .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.assignedCompany))
                 .append($("</td>"))
                 .append($("<td>"))
@@ -77,7 +78,7 @@ function getAllInterns() {
     })
 }
 
-// Create a new studentw
+// Create a new student
 function createStudent() {
 
     var student = {};
