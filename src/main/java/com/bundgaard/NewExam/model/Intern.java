@@ -18,7 +18,7 @@ public class Intern {
     private String lastName;
 
     @Column(name = "isInternshipDone")
-    private boolean isInternshipDone;
+    private String isInternshipDone;
 
     @Column(name = "assignedCompany")
     private String assignedCompany;
@@ -30,7 +30,7 @@ public class Intern {
     public Intern() {
     }
 
-    public Intern(Long internId, String firstName, String lastName, boolean isInternshipDone, String assignedCompany, Company company) {
+    public Intern(Long internId, String firstName, String lastName, String isInternshipDone, String assignedCompany, Company company) {
         this.internId = internId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -63,12 +63,12 @@ public class Intern {
         this.lastName = lastName;
     }
 
-    public boolean isInternshipDone() {
+    public String getIsInternshipDone() {
         return isInternshipDone;
     }
 
-    public void setInternshipDone(boolean internshipDone) {
-        isInternshipDone = internshipDone;
+    public void setIsInternshipDone(String isInternshipDone) {
+        this.isInternshipDone = isInternshipDone;
     }
 
     public String getAssignedCompany() {

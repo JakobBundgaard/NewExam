@@ -39,8 +39,61 @@ function getAllInterns() {
     })
 }
 
+function createIntern() {
+
+    var intern = {};
+    var company = {};
+    var dynamicURL = "";
+    var methodName = "";
+
+    $('#btnAddIntern').click(function() {
+
+        intern.firstname = $('#firstname').val();
+        intern.lastname = $('#lastname').val();
+        intern.isInternshipDone = $('#finishedintern').val();
+        company.companId = $('#company').val();
+        intern.assignedCompany = company;
+        var internId = $('#internId').val();
+        if (internId) {
+            intern.internId = $('#internId').val();
+            dynamicURL = "http://localhost:8080/api/intern/";
+            methodName = "PUT";
+        } else {
+            dynamicURL = "http://localhost:8080/api/intern/";
+            methodName = "POST";
+        }
+        var internObj = JSON.stringify(intern);
+        console.log(internObj);
+        $.ajax({
+            url: dynamicURL,
+            method: methodName,
+            data: internObj,
+            contentType: 'application/json; charset=utf-8',
+            success: function() {
+                console.log(methodName);
+                resetForm();
+                getAllInterns();
+            },
+            error: function(error) {
+                alert("A error have occured - Please do something else. Error Message: " + error);
+            }
+        })
+
+    })
+
+}
+
+// Reset Create Intern Form
+function resetForm() {
+    $('#internId').val('');
+    $('#firstname').val('');
+    $('#lastname').val('');
+    $('#finishedintern').val('');
+    $('#company').val('');
+}
 
 
 $(document).ready(function() {
+    createIntern();
     getAllInterns();
 });

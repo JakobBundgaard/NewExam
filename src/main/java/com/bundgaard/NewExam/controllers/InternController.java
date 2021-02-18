@@ -25,9 +25,10 @@ public class InternController {
     }
 
     // Create new Intern
-    @PostMapping("/students")
+    @PostMapping("/interns")
     public Intern addNewIntern(@RequestBody Intern intern){
         return internService.save(intern);
     }
 
 }
+
