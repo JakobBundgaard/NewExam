@@ -1,18 +1,29 @@
 package com.bundgaard.NewExam.service.springdatajpa;
 
 import com.bundgaard.NewExam.model.Company;
+import com.bundgaard.NewExam.repositories.CompanyRepo;
 import com.bundgaard.NewExam.service.CompanyService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class CompanyJPA implements CompanyService {
+
+    private final CompanyRepo companyRepo;
+
+    public CompanyJPA(CompanyRepo companyRepo) {
+        this.companyRepo = companyRepo;
+    }
+
     @Override
     public List<Company> findAll() {
-        return null;
+        List<Company>  list = new ArrayList<>();
+        companyRepo.findAll().forEach(list::add);
+        System.out.println(list);
+        return list;
     }
 
     @Override
@@ -21,7 +32,7 @@ public class CompanyJPA implements CompanyService {
     }
 
     @Override
-    public void delete(Company object) {
+    public void delete(Long object) {
 
     }
 

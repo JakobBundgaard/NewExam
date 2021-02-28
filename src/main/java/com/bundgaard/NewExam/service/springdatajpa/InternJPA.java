@@ -30,21 +30,21 @@ public class InternJPA implements InternService {
 
     @Override
     public Intern save(Intern object) {
-        return null;
+        return internRepo.save(object);
     }
 
     @Override
-    public void delete(Intern object) {
-
+    public void delete(Long internId) {
+        internRepo.deleteById(internId);
     }
 
     @Override
     public void deleteById(Long aLong) {
-
+        internRepo.deleteById(aLong);
     }
 
     @Override
     public Optional<Intern> findById(Long aLong) {
-        return Optional.empty();
+        return internRepo.findById(aLong);
     }
 }

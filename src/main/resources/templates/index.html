@@ -19,11 +19,7 @@
         <h2>Add intern</h2>
         <hr>
         <table>
-            <tr>
-                <td>Intern ID: </td>
-                <td><input type="number" id="internId"></td>
 
-            </tr>
             <tr>
                 <td>Firstname: </td>
                 <td><input type="text" id="firstname"></td>
@@ -36,10 +32,11 @@
                 <td>Has Finished Internship: </td>
                 <td><input type="checkbox" id="finishedintern"></td>
             </tr>
-            <tr>
-                <td>Company: </td>
-                <td><input type="text" id="company"></td>
-            </tr>
+            <!--
+            <label>Companys</label>
+            <select name ="company" id="company_id">
+                <option th:each="company : ${companys}" th:value="${company.companyId}" th:text="${supervisor.toString()}"></option>
+            </select>-->
 
             <tr colspan="2">
                 <td><input type="button" value="Add/Update Intern" id="btnAddIntern"></td>
