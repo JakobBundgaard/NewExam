@@ -26,12 +26,20 @@ public class InternController {
 
     @GetMapping("/interns")
     public List<Intern> getAllInterns(Model model){
-        System.out.println(internService.findAll());
-        System.out.println(companyService.findAll());
+        //System.out.println(internService.findAll());
+        //System.out.println(companyService.findAll());
         model.addAttribute("companys", companyService.findAll());
         return internService.findAll();
     }
-
+/*
+    @GetMapping("/companys")
+    public List<Company> getAllCompanys(Model model){
+        //System.out.println(internService.findAll());
+        //System.out.println(companyService.findAll());
+        model.addAttribute("companys", companyService.findAll());
+        return companyService.findAll();
+    }
+*/
 
 
     // Get student by ID

@@ -49,4 +49,7 @@ public class Company {
     public void setInterns(Set<Intern> interns) {
         this.interns = interns;
     }
+    public String toString() {
+        return companyName;
+    }
 }

@@ -12,6 +12,7 @@ function deleteIntern(id) {
     })
 }
 
+
 // Create a new intern
 function createIntern() {
 
@@ -22,7 +23,7 @@ function createIntern() {
     $('#btnAddIntern').click(function() {
         intern.firstName = $('#firstname').val();
         intern.lastName = $('#lastname').val();
-        intern.isInternshipDone = $('#finishedintern').val();
+        intern.isInternshipDone = $('#finishedIntern').val();
         dynamicURL = "http://localhost:8080/api/newIntern/";
         methodName = "POST";
         let internObj = JSON.stringify(intern);
@@ -56,22 +57,22 @@ function getAllInterns() {
                 .append($("<tr>"))
                 .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.internId))
-                .append($("</td>"))
+                //.append($("</td>"))
                 .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.firstName))
-                .append($("</td>"))
+                //.append($("</td>"))
                 .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.lastName))
-                .append($("</td>"))
+                //.append($("</td>"))
                 .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.isInternshipDone))
-                .append($("</td>"))
+                //.append($("</td>"))
                 .append($("<td>"))
                 .append($("<input type=\"text\" class=\"form-control\">").val(interns.assignedCompany))
-                .append($("</td>"))
+                //.append($("</td>"))
                 .append($("<td>"))
                 .append($("<button type='button' class='btn btn-primary' onclick=\"updateIntern(" + interns.internId + ")\">Update</button>"))
-                .append($("</td>"))
+                //.append($("</td>"))
                 .append($("<td>"))
                 .append($("<button type='button' class='btn btn-danger' onclick=\"deleteIntern(" + interns.internId + ")\">Delete</button>"))
                 .append($("</td>"));
