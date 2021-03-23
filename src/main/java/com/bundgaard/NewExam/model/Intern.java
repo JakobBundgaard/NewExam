@@ -27,18 +27,6 @@ public class Intern {
     @JoinColumn(name = "companyId")
     private Company company;
 
-    public Intern() {
-    }
-
-    public Intern(Long internId, String firstName, String lastName, String isInternshipDone, String assignedCompany, Company company) {
-        this.internId = internId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.isInternshipDone = isInternshipDone;
-        this.assignedCompany = assignedCompany;
-        this.company = company;
-    }
-
     public Long getInternId() {
         return internId;
     }
@@ -86,4 +74,17 @@ public class Intern {
     public void setCompany(Company company) {
         this.company = company;
     }
+
+    @Override
+    public String toString() {
+        return "Intern{" +
+                "internId=" + internId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", isInternshipDone='" + isInternshipDone + '\'' +
+                ", assignedCompany='" + assignedCompany + '\'' +
+                ", company=" + company +
+                '}';
+    }
 }
+

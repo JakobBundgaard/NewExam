@@ -23,26 +23,33 @@ public class InternController {
     private CompanyService companyService;
 
 
-
     @GetMapping("/interns")
-    public List<Intern> getAllInterns(Model model){
-        //System.out.println(internService.findAll());
-        //System.out.println(companyService.findAll());
-        model.addAttribute("companys", companyService.findAll());
+    public List<Intern> getAllInterns(){
         return internService.findAll();
     }
-/*
+
     @GetMapping("/companys")
-    public List<Company> getAllCompanys(Model model){
-        //System.out.println(internService.findAll());
-        //System.out.println(companyService.findAll());
-        model.addAttribute("companys", companyService.findAll());
+    public List<Company> getAllCompanys(){
         return companyService.findAll();
     }
-*/
 
 
-    // Get student by ID
+    @PutMapping("/update/{id}")
+    public Intern updateIntern(@RequestBody Intern newIntern, @PathVariable Long id) {
+        System.out.println("intern to be updated" + newIntern.toString());
+        return internService.findById(id)
+                .map(intern -> {
+                    intern.setFirstName(newIntern.getFirstName());
+                    intern.setLastName(newIntern.getLastName());
+                    intern.setIsInternshipDone(newIntern.getIsInternshipDone());
+                    intern.setCompany(newIntern.getCompany());
+                    System.out.println("intern updated" + newIntern.toString());
+                    return internService.save(intern);
+                })
+                .orElseGet(() -> internService.save(newIntern));
+    }
+
+    // Get intern by ID
     @GetMapping("/interns/{internId}")
     public Optional<Intern> getInternById(@PathVariable Long internId){
         Optional<Intern> intern = internService.findById(internId);
@@ -58,7 +65,6 @@ public class InternController {
     // Delete Intern
     @DeleteMapping("/interns/{internId}")
     void deleteIntern(@PathVariable Long internId){
-        System.out.println("1");
         internService.deleteById(internId);
     }
 
